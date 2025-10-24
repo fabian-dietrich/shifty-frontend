@@ -1,0 +1,400 @@
+/* ========================================
+   SCHEDULE PAGE STYLES
+   ======================================== */
+
+.schedule-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.schedule-header h1 {
+  margin: 0;
+  color: var(--color-gray-900);
+  font-size: var(--font-size-3xl);
+}
+
+.schedule-content {
+  margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+   SCHEDULE GRID STYLES
+   ======================================== */
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.day-column {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.day-header {
+  background-color: var(--color-gray-100);
+  padding: var(--spacing-md);
+  text-align: center;
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.day-header h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-800);
+  font-weight: var(--font-weight-semibold);
+}
+
+.shifts-container {
+  padding: var(--spacing-sm);
+}
+
+.no-shifts {
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+  color: var(--color-gray-400);
+  font-style: italic;
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   SHIFT CARD STYLES
+   ======================================== */
+
+.shift-card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+}
+
+.shift-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.shift-card.filled {
+  border-left: 4px solid var(--color-primary);
+}
+
+.shift-card.open {
+  border-left: 4px solid var(--color-gray-300);
+}
+
+/* Time Display */
+.shift-card-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.time-separator {
+  color: var(--color-gray-400);
+}
+
+/* Worker Info */
+.shift-card-worker {
+  margin-top: var(--spacing-sm);
+}
+
+.worker-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-sm);
+}
+
+.worker-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.worker-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Open Shift Badge */
+.shift-open-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-gray-100);
+  border: 1px dashed var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  color: var(--color-gray-600);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.open-icon {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-400);
+}
+
+/* Admin Indicator */
+.shift-card-admin-hint {
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.shift-card:hover .shift-card-admin-hint {
+  opacity: 0.5;
+}
+
+.admin-icon {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+}
+
+/* Expanded Details */
+.shift-card-details {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-gray-200);
+  font-size: var(--font-size-sm);
+}
+
+.detail-row {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-gray-700);
+}
+
+.detail-row strong {
+  color: var(--color-gray-900);
+  margin-right: var(--spacing-xs);
+}
+
+.admin-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.btn-small {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+
+.btn-small.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.btn-small.btn-secondary:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.btn-small.btn-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-small.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+/* ========================================
+   MODAL STYLES
+   ======================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+.modal-content {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  color: var(--color-gray-900);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: var(--font-size-2xl);
+  color: var(--color-gray-400);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-600);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-gray-200);
+  background-color: var(--color-gray-50);
+}
+
+/* ========================================
+   SHIFT FORM STYLES
+   ======================================== */
+
+.shift-form {
+  padding: var(--spacing-lg);
+}
+
+.shift-form .form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.shift-form .form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+}
+
+.shift-form .form-input,
+.shift-form select {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  transition: all var(--transition-fast);
+}
+
+.shift-form .form-input:focus,
+.shift-form select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.shift-form select {
+  cursor: pointer;
+  background-color: var(--color-white);
+}
+
+.shift-form .alert {
+  margin-top: var(--spacing-md);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablets and smaller desktops */
+@media (max-width: 1200px) {
+  .schedule-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Mobile landscape and small tablets */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .day-column {
+    min-height: 300px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .schedule-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .schedule-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+}

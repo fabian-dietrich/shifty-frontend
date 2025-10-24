@@ -1,0 +1,39 @@
+/* ========================================
+   HOME PAGE STYLES
+   ======================================== */
+
+.home-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.home-title {
+  text-align: center;
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-lg);
+}
+
+.home-subtitle {
+  font-size: var(--font-size-lg);
+  text-align: center;
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.home-card {
+  background-color: var(--color-gray-100);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-list {
+  margin-top: var(--spacing-md);
+  line-height: 1.8;
+  padding-left: var(--spacing-lg);
+}
+
+.home-list li {
+  margin-bottom: var(--spacing-sm);
+}
