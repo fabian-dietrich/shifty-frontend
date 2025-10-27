@@ -14,25 +14,26 @@ function DashboardPage() {
         <p>You can only see this page because you're logged in!</p>
       </div>
 
-      <div className="dashboard-card-user">
-        <h3>Your Profile Information:</h3>
-        <div className="dashboard-user-info">
-          <p>
-            <strong>User ID:</strong> {user?._id}
-          </p>
-          <p>
-            <strong>Username:</strong> {user?.username || "N/A"}
-          </p>
-          <p>
-            <strong>Issued At:</strong>{" "}
-            {new Date(user?.iat * 1000).toLocaleString()}
-          </p>
-          <p>
-            <strong>Token Expires:</strong>{" "}
-            {new Date(user?.exp * 1000).toLocaleString()}
-          </p>
-        </div>
-      </div>
+<div className="dashboard-card-user">
+  <div className="dashboard-user-header">
+    <div 
+      className="dashboard-user-avatar"
+      style={{ backgroundColor: user?.color }}
+    >
+      {user?.username?.substring(0, 2).toUpperCase() || "??"}
+    </div>
+    <h3>{user?.username || "User"}</h3>
+  </div>
+  <div className="dashboard-user-info">
+    <p>
+      <strong>Email:</strong> {user?.email || "N/A"}
+    </p>
+    <p>
+      <strong>Signed in until:</strong>{" "}
+      {user?.exp ? new Date(user.exp * 1000).toLocaleString() : "N/A"}
+    </p>
+  </div>
+</div>
 
       <div className="dashboard-card-features">
         <h3>What You've Accomplished:</h3>

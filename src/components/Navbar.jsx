@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/components/navbar.css";
 
@@ -15,39 +15,34 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <NavLink to="/" className="navbar-logo">
           Shifty App
-        </Link>
+        </NavLink>
 
         <div className="navbar-links">
-          <Link to="/" className="navbar-link">
-            Home
-          </Link>
 
           {isLoggedIn ? (
             <>
-              <Link to="/schedule" className="navbar-link">
+              <NavLink to="/schedule" className="navbar-link">
                 Schedule
-              </Link>
+              </NavLink>
 
-              <Link to="/dashboard" className="navbar-link">
+              <NavLink to="/dashboard" className="navbar-link">
                 Dashboard
-              </Link>
-              <span className="navbar-username">
-                Hello, {user?.username || "User"}!
-              </span>
+              </NavLink>
+
               <button onClick={handleLogout} className="navbar-logout-btn">
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/signup" className="navbar-link">
+              <NavLink to="/signup" className="navbar-link">
                 Signup
-              </Link>
-              <Link to="/login" className="navbar-link">
+              </NavLink>
+              <NavLink to="/login" className="navbar-link">
                 Login
-              </Link>
+              </NavLink>
             </>
           )}
         </div>

@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-function ShiftCard({ shift, isAdmin, onRefresh }) {
+function ShiftCard({ shift, isAdmin, onRefresh, onAssignClick }) {
   const [showDetails, setShowDetails] = useState(false);
 
   const handleClick = () => {
-    // For now, just toggle to show we can interact
-    // Later we'll add modals for assign/edit
-    setShowDetails(!showDetails);
+    if (isAdmin) {
+      // Admin clicks trigger assign callback
+      onAssignClick(shift);
+    } else {
+      // Regular users just toggle details
+      setShowDetails(!showDetails);
+    }
   };
 
   return (
@@ -60,14 +64,6 @@ function ShiftCard({ shift, isAdmin, onRefresh }) {
           {shift.assignedWorker && (
             <div className="detail-row">
               <strong>Email:</strong> {shift.assignedWorker.email}
-            </div>
-          )}
-          {isAdmin && (
-            <div className="admin-actions">
-              <button className="btn-small btn-secondary">
-                {shift.assignedWorker ? "Unassign" : "Assign"}
-              </button>
-              <button className="btn-small btn-danger">Delete</button>
             </div>
           )}
         </div>

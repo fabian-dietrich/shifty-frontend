@@ -22,7 +22,7 @@ function LoginPage() {
       );
 
       const { authToken } = response.data;
-      login(authToken);
+      await login(authToken);
       navigate("/dashboard");
     } catch (error) {
       const message =

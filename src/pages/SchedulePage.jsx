@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import ScheduleGrid from "../components/ScheduleGrid";
 import CreateShiftForm from "../components/CreateShiftForm";
+import AssignWorkerForm from "../components/AssignWorkerForm";
 import "../styles/components/Schedule.css";
 
 function SchedulePage() {
@@ -11,6 +12,7 @@ function SchedulePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedShift, setSelectedShift] = useState(null); // For assign modal
 
   // Fetch all shifts when component mounts
   useEffect(() => {
@@ -41,6 +43,11 @@ function SchedulePage() {
 
   // Check if current user is admin
   const isAdmin = user?.role === "admin";
+
+  // Handle shift card click for assignment
+  const handleAssignClick = (shift) => {
+    setSelectedShift(shift);
+  };
 
   if (loading) {
     return (
@@ -78,6 +85,7 @@ function SchedulePage() {
           shifts={shifts}
           isAdmin={isAdmin}
           onRefresh={fetchShifts}
+          onAssignClick={handleAssignClick}
         />
       </div>
 
@@ -85,6 +93,15 @@ function SchedulePage() {
       {showCreateModal && (
         <CreateShiftForm
           onClose={() => setShowCreateModal(false)}
+          onSuccess={fetchShifts}
+        />
+      )}
+
+      {/* Assign Worker Modal */}
+      {selectedShift && (
+        <AssignWorkerForm
+          shift={selectedShift}
+          onClose={() => setSelectedShift(null)}
           onSuccess={fetchShifts}
         />
       )}

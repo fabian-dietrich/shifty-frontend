@@ -42,8 +42,9 @@
   text-decoration: none;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  transition: color var(--transition-fast);
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) var(--spacing-md);  /* Add horizontal padding */
+  border-radius: var(--radius-md);  /* Add border radius */
+  transition: color var(--transition-fast);  /* Only animate color */
   position: relative;
 }
 
@@ -51,35 +52,21 @@
   color: var(--color-primary-light);
 }
 
-.navbar-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
+.navbar-link.active {
+  color: var(--color-white);
   background-color: var(--color-primary);
-  transition: width var(--transition-base);
 }
 
-.navbar-link:hover::after {
-  width: 100%;
-}
-
-.navbar-username {
-  color: var(--color-primary-light);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-}
 
 .navbar-logout-btn {
   background-color: var(--color-error);
   color: var(--color-white);
   border: none;
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);  /* Match navbar-link padding */
   border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);  /* Changed from font-size-sm to match links */
   font-weight: var(--font-weight-medium);
+   line-height: 1.6;
   cursor: pointer;
   transition: background-color var(--transition-fast);
 }

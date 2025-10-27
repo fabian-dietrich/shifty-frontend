@@ -56,9 +56,9 @@ function AuthProvider({ children }) {
   };
 
   // Function to log in (called after successful login)
-  const login = (token) => {
+  const login = async (token) => {
     localStorage.setItem("authToken", token);
-    verifyToken(); // Verify and set user data
+    await verifyToken(); // Wait for verification to complete
   };
 
   return (

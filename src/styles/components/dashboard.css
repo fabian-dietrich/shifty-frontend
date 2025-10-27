@@ -31,6 +31,33 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.dashboard-user-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.dashboard-user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-user-header h3 {
+  margin: 0;
+  color: var(--color-gray-900);
+  font-size: var(--font-size-2xl);
+}
+
 .dashboard-user-info {
   margin-top: var(--spacing-md);
   line-height: 1.8;
