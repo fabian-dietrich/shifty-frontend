@@ -3,20 +3,21 @@ import "../styles/components/HomePage.css";
 function HomePage() {
   return (
     <div className="home-container">
-      <h1 className="home-title">Welcome to Shifty App! 🚀</h1>
+      <h1 className="home-title"> 🗓️ Welcome to Shifty</h1>
       <p className="home-subtitle">
-        This is the home page. Everyone can see this page, whether you're logged in or not.
+        This is the landing page, visible without prior authentication.
       </p>
       <div className="home-card">
-        <h2>About This App</h2>
         <p>
-          This is a demonstration of a full-stack MERN application with authentication.
+          Shifty is a scheduling tool for teams running small businesses like cafés, restaurants or independent retailers.
         </p>
+        <p>Core Features:</p>
         <ul className="home-list">
-          <li>✅ User registration and login</li>
-          <li>✅ JWT token-based authentication</li>
-          <li>✅ Protected routes</li>
-          <li>✅ Persistent login sessions</li>
+          <li>👤 User registration and login</li>
+          <li>💼 Admin privileges</li>
+          <li>🔐 JWT token-based user authentication</li>
+          <li>🧭 Protected routes</li>
+          <li>🔓 Persistent login sessions</li>
         </ul>
       </div>
     </div>

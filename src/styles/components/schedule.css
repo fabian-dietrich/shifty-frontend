@@ -1,7 +1,3 @@
-/* ========================================
-   SCHEDULE PAGE STYLES
-   ======================================== */
-
 .schedule-page {
   max-width: 1400px;
   margin: 0 auto;
@@ -27,9 +23,7 @@
   margin-top: var(--spacing-xl);
 }
 
-/* ========================================
-   SCHEDULE GRID STYLES
-   ======================================== */
+/* SCHEDULE GRID STYLES */
 
 .schedule-grid {
   display: grid;
@@ -72,9 +66,7 @@
   font-size: var(--font-size-sm);
 }
 
-/* ========================================
-   SHIFT CARD STYLES
-   ======================================== */
+/* SHIFT CARD STYLES */
 
 .shift-card {
   background-color: var(--color-white);
@@ -91,7 +83,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
- 
+
 /*
 
 MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
@@ -121,7 +113,7 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   color: var(--color-gray-400);
 }
 
-/* Worker Info */
+/* Worker Detais */
 .shift-card-worker {
   margin-top: var(--spacing-sm);
 }
@@ -178,24 +170,6 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   color: var(--color-gray-400);
 }
 
-/* Admin Indicator */
-.shift-card-admin-hint {
-  position: absolute;
-  top: var(--spacing-xs);
-  right: var(--spacing-xs);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.shift-card:hover .shift-card-admin-hint {
-  opacity: 0.5;
-}
-
-.admin-icon {
-  font-size: var(--font-size-xs);
-  color: var(--color-gray-400);
-}
-
 /* Expanded Details */
 .shift-card-details {
   margin-top: var(--spacing-md);
@@ -248,9 +222,7 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   background-color: #d32f2f;
 }
 
-/* ========================================
-   MODAL STYLES
-   ======================================== */
+/* MODAL STYLES */
 
 .modal-overlay {
   position: fixed;
@@ -339,9 +311,7 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   background-color: var(--color-gray-50);
 }
 
-/* ========================================
-   ASSIGN WORKER FORM STYLES
-   ======================================== */
+/* ASSIGN WORKER FORM STYLES */
 
 .shift-info-box {
   background-color: var(--color-gray-50);
@@ -517,9 +487,22 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   font-size: var(--font-size-sm);
 }
 
-/* ========================================
-   SHIFT FORM STYLES
-   ======================================== */
+/* Delete */
+.delete-shift-section {
+  /* margin-top: var(--spacing-sm); */
+  padding-top: var(--spacing-md);
+}
+
+.delete-shift-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-error);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-md);
+}
+
+/* SHIFT FORM STYLES */
 
 .shift-form {
   padding: var(--spacing-lg);
@@ -562,39 +545,34 @@ MAYBE VISUAL HIGHLIGHTS INDICATING SHIFT OPEN OR ASSSIGNED?
   margin-top: var(--spacing-md);
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
+/* RESPONSIVE */
 
-/* Tablets and smaller desktops */
 @media (max-width: 1200px) {
   .schedule-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Mobile landscape and small tablets */
 @media (max-width: 768px) {
   .schedule-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .day-column {
     min-height: 300px;
   }
 }
 
-/* Mobile portrait */
 @media (max-width: 480px) {
   .schedule-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .schedule-header {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  
+
   .schedule-header h1 {
     font-size: var(--font-size-2xl);
   }

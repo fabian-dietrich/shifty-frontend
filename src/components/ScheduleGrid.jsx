@@ -2,7 +2,6 @@ import { useState } from "react";
 import ShiftCard from "./ShiftCard";
 
 function ScheduleGrid({ shifts, isAdmin, onRefresh, onAssignClick }) {
-  // Days of the week in order
   const daysOfWeek = [
     "Monday",
     "Tuesday", 
@@ -13,22 +12,19 @@ function ScheduleGrid({ shifts, isAdmin, onRefresh, onAssignClick }) {
     "Sunday"
   ];
 
-  // Group shifts by day of week
   const shiftsByDay = {};
   
-  // Initialize each day with empty array
   daysOfWeek.forEach(day => {
     shiftsByDay[day] = [];
   });
 
-  // Organize shifts into their respective days
   shifts.forEach(shift => {
     if (shiftsByDay[shift.dayOfWeek]) {
       shiftsByDay[shift.dayOfWeek].push(shift);
     }
   });
 
-  // Sort shifts within each day by start time
+  // Sort shifts within each weekday column by start time
   Object.keys(shiftsByDay).forEach(day => {
     shiftsByDay[day].sort((a, b) => {
       return a.startTime.localeCompare(b.startTime);

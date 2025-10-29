@@ -1,7 +1,3 @@
-/* ========================================
-   NAVBAR STYLES
-   ======================================== */
-
 .navbar {
   background-color: var(--color-gray-900);
   box-shadow: var(--shadow-md);
@@ -42,9 +38,9 @@
   text-decoration: none;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  padding: var(--spacing-sm) var(--spacing-md);  /* Add horizontal padding */
-  border-radius: var(--radius-md);  /* Add border radius */
-  transition: color var(--transition-fast);  /* Only animate color */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast);
   position: relative;
 }
 
@@ -62,9 +58,9 @@
   background-color: var(--color-error);
   color: var(--color-white);
   border: none;
-  padding: var(--spacing-sm) var(--spacing-md);  /* Match navbar-link padding */
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-base);  /* Changed from font-size-sm to match links */
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
    line-height: 1.6;
   cursor: pointer;

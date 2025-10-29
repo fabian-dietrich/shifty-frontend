@@ -47,9 +47,8 @@ function CreateShiftForm({ onClose, onSuccess }) {
         }
       );
 
-      console.log("✅ Shift created:", response.data);
+      console.log("Shift created:", response.data);
       
-      // Call success callback to refresh shifts
       if (onSuccess) {
         onSuccess();
       }
@@ -57,7 +56,7 @@ function CreateShiftForm({ onClose, onSuccess }) {
       // Close modal
       onClose();
     } catch (err) {
-      console.error("❌ Error creating shift:", err);
+      console.error("Error creating shift:", err);
       setError(
         err.response?.data?.errorMessage || 
         "Failed to create shift. Please try again."
@@ -131,14 +130,13 @@ function CreateShiftForm({ onClose, onSuccess }) {
             />
           </div>
 
-          {/* Error Message */}
           {error && (
             <div className="alert alert-error">
               {error}
             </div>
           )}
 
-          {/* Action Buttons */}
+
           <div className="modal-actions">
             <button
               type="button"

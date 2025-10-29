@@ -1,7 +1,3 @@
-/* ========================================
-   AUTH PAGES STYLES (Login & Signup)
-   ======================================== */
-
 .auth-page {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -59,10 +55,6 @@
   color: var(--color-primary-dark);
   text-decoration: underline;
 }
-
-/* ========================================
-   PAGE-SPECIFIC COLOR SCHEMES
-   ======================================== */
 
 /* Signup Page - Green Theme */
 .signup-page .form-input:focus {

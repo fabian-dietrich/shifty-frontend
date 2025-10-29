@@ -79,7 +79,6 @@ function SchedulePage() {
         )}
       </div>
 
-      {/* Placeholder for schedule grid */}
       <div className="schedule-content">
         <ScheduleGrid 
           shifts={shifts}
@@ -89,7 +88,6 @@ function SchedulePage() {
         />
       </div>
 
-      {/* Create Shift Modal */}
       {showCreateModal && (
         <CreateShiftForm
           onClose={() => setShowCreateModal(false)}
@@ -97,7 +95,6 @@ function SchedulePage() {
         />
       )}
 
-      {/* Assign Worker Modal */}
       {selectedShift && (
         <AssignWorkerForm
           shift={selectedShift}

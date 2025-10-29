@@ -1,13 +1,4 @@
-/* ========================================
-   GLOBAL STYLES
-   ======================================== */
-
-/* Import CSS Variables */
-@import './variables.css';
-
-/* ========================================
-   CSS Reset & Base Styles
-   ======================================== */
+@import "./variables.css";
 
 *,
 *::before,
@@ -32,11 +23,14 @@ body {
   min-height: 100vh;
 }
 
-/* ========================================
-   Typography
-   ======================================== */
+/* Fonts */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-md);
@@ -81,10 +75,7 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-/* ========================================
-   Layout Utilities
-   ======================================== */
-
+/* Containers */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -96,10 +87,6 @@ a:hover {
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-md);
 }
-
-/* ========================================
-   Common Components
-   ======================================== */
 
 /* Buttons */
 .btn {
@@ -203,25 +190,25 @@ a:hover {
 .alert-success {
   background-color: #e8f5e9;
   color: #2e7d32;
-  border-color: #4CAF50;
+  border-color: #4caf50;
 }
 
 .alert-error {
   background-color: #ffebee;
   color: #c62828;
-  border-color: #F44336;
+  border-color: #f44336;
 }
 
 .alert-warning {
   background-color: #fff3e0;
   color: #e65100;
-  border-color: #FF9800;
+  border-color: #ff9800;
 }
 
 .alert-info {
   background-color: #e3f2fd;
   color: #1565c0;
-  border-color: #2196F3;
+  border-color: #2196f3;
 }
 
 /* Loading States */
@@ -242,13 +229,15 @@ a:hover {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* ========================================
-   Utility Classes
-   ======================================== */
+/* Utility Classes Import */
 
 .text-center {
   text-align: center;
@@ -270,15 +259,31 @@ a:hover {
   font-weight: var(--font-weight-bold);
 }
 
-.mt-sm { margin-top: var(--spacing-sm); }
-.mt-md { margin-top: var(--spacing-md); }
-.mt-lg { margin-top: var(--spacing-lg); }
-.mt-xl { margin-top: var(--spacing-xl); }
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
 
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
-.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
 
 .d-flex {
   display: flex;
@@ -292,6 +297,12 @@ a:hover {
   align-items: center;
 }
 
-.gap-sm { gap: var(--spacing-sm); }
-.gap-md { gap: var(--spacing-md); }
-.gap-lg { gap: var(--spacing-lg); }
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+.gap-md {
+  gap: var(--spacing-md);
+}
+.gap-lg {
+  gap: var(--spacing-lg);
+}

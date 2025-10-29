@@ -42,32 +42,15 @@ function ShiftCard({ shift, isAdmin, onRefresh, onAssignClick }) {
           </div>
         ) : (
           <div className="shift-open-badge">
-            <span className="open-icon">○</span>
-            <span>Open</span>
+            <span className="open-icon">⚠️</span>
+            <span>not assigned</span>
           </div>
         )}
       </div>
 
-      {/* Optional: Admin indicators */}
-      {isAdmin && (
-        <div className="shift-card-admin-hint">
-          <span className="admin-icon">⚙</span>
-        </div>
-      )}
 
-      {/* Optional: Expanded details (future use) */}
-      {showDetails && (
-        <div className="shift-card-details" onClick={(e) => e.stopPropagation()}>
-          <div className="detail-row">
-            <strong>Status:</strong> {shift.status}
-          </div>
-          {shift.assignedWorker && (
-            <div className="detail-row">
-              <strong>Email:</strong> {shift.assignedWorker.email}
-            </div>
-          )}
-        </div>
-      )}
+
+
     </div>
   );
 }

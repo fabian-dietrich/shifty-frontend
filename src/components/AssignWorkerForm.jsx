@@ -8,7 +8,6 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
   const [fetchingUsers, setFetchingUsers] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch all users when component mounts
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -17,10 +16,6 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
     try {
       setFetchingUsers(true);
       const token = localStorage.getItem("authToken");
-      
-      // We'll need to get users from the backend
-      // For now, we'll use a workaround - get them from MongoDB or create a users endpoint
-      // Let's create a simple endpoint first
       
       const response = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/users`,
@@ -31,7 +26,7 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
 
       setUsers(response.data);
     } catch (err) {
-      console.error("❌ Error fetching users:", err);
+      console.error("Error fetching users:", err);
       setError("Failed to load users. Please try again.");
     } finally {
       setFetchingUsers(false);
@@ -63,17 +58,15 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
         }
       );
 
-      console.log("✅ User assigned to shift:", response.data);
+      console.log("User assigned to shift:", response.data);
       
-      // Call success callback to refresh shifts
       if (onSuccess) {
         onSuccess();
       }
       
-      // Close modal
       onClose();
     } catch (err) {
-      console.error("❌ Error assigning user:", err);
+      console.error("Error assigning user:", err);
       setError(
         err.response?.data?.errorMessage || 
         "Failed to assign user. Please try again."
@@ -100,7 +93,7 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
         }
       );
 
-      console.log("✅ User unassigned from shift:", response.data);
+      console.log("User unassigned from shift:", response.data);
       
       if (onSuccess) {
         onSuccess();
@@ -108,7 +101,7 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
       
       onClose();
     } catch (err) {
-      console.error("❌ Error unassigning user:", err);
+      console.error("Error unassigning user:", err);
       setError(
         err.response?.data?.errorMessage || 
         "Failed to unassign user. Please try again."
@@ -117,6 +110,46 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
       setLoading(false);
     }
   };
+
+
+const handleDelete = async () => {
+  if (!window.confirm(`Are you sure you want to delete the shift on ${shift.dayOfWeek}  (${shift.startTime} — ${shift.endTime})?`)) {
+    return;
+  }
+
+  setLoading(true);
+  setError(null);
+
+  try {
+    const token = localStorage.getItem("authToken");
+    
+    const response = await axios.delete(
+      `${import.meta.env.VITE_API_URL}/api/shifts/${shift._id}`,
+      {
+        headers: { 
+          "Authorization": `Bearer ${token}` 
+        }
+      }
+    );
+
+    console.log("Shift deleted:", response.data);
+    
+    if (onSuccess) {
+      onSuccess();
+    }
+    
+    onClose();
+  } catch (err) {
+    console.error("Error deleting shift:", err);
+    setError(
+      err.response?.data?.errorMessage || 
+      "Failed to delete shift. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
+  
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -135,9 +168,8 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
 
 <div className="modal-body">
           {shift.assignedWorker ? (
-            /* FILLED SHIFT: Show current assignment with unassign option */
             <div className="current-assignment-inline">
-              <strong>Currently assigned to:</strong>
+              <strong>Assigned to:</strong>
               <div className="worker-badge-with-actions">
                 <div className="worker-info-compact">
                   <div 
@@ -159,7 +191,7 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
               </div>
             </div>
           ) : (
-            /* EMPTY SHIFT: Show assignment form */
+
             <form onSubmit={handleAssign} className="assign-form">
               <div className="form-group">
                 <label htmlFor="userId" className="form-label">
@@ -178,7 +210,7 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
                     className="form-input"
                     required
                   >
-                    <option value="">-- Select a user --</option>
+                    <option value="">-- Select a worker to assign --</option>
                     {users.map(user => (
                       <option key={user._id} value={user._id}>
                         {user.username} ({user.email})
@@ -203,9 +235,21 @@ function AssignWorkerForm({ shift, onClose, onSuccess }) {
               </button>
             </form>
           )}
+
+
+          <div className="delete-shift-section">
+            <button
+              onClick={handleDelete}
+              className="btn btn-danger btn-full"
+              disabled={loading}
+            >
+              {loading ? "Deleting..." : "Delete This Shift"}
+            </button>
+          </div>
+        </div>
+
         </div>
       </div>
-    </div>
   );
 }
 
