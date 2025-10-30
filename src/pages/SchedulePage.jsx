@@ -4,7 +4,7 @@ import axios from "axios";
 import ScheduleGrid from "../components/ScheduleGrid";
 import CreateShiftForm from "../components/CreateShiftForm";
 import AssignWorkerForm from "../components/AssignWorkerForm";
-import "../styles/components/Schedule.css";
+import "../styles/components/schedule.css";
 
 function SchedulePage() {
   const { user } = useContext(AuthContext);

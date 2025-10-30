@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import "../styles/components/Dashboard.css";
+import "../styles/components/dashboard.css";
 
 function DashboardPage() {
   const { user } = useContext(AuthContext);
