@@ -23,6 +23,7 @@ function SignupPage() {
 
       navigate("/login");
     } catch (error) {
+      console.log("error logging in", error);
       const message =
         error.response?.data?.errorMessage ||
         "Signup failed. Please try again.";
