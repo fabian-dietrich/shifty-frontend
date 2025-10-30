@@ -20,7 +20,6 @@ function Navbar() {
         </NavLink>
 
         <div className="navbar-links">
-
           {isLoggedIn ? (
             <>
               <NavLink to="/schedule" className="navbar-link">
