@@ -23,6 +23,7 @@ React 19, React Router 7, Axios, Vite.
 
 - Weekly shift grid with color-coded team member assignments
 - Admin dashboard for creating, editing, and staffing shifts
+- Employee view showing personal schedule and open shifts
 - JWT-based authentication with protected routes
 - Responsive layout
 
