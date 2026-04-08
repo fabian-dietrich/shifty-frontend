@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import "../styles/components/navbar.css";
 
 function Navbar() {
-  const { isLoggedIn, user, logout } = useContext(AuthContext);
+  const { isLoggedIn, isDemo, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,40 +13,54 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <NavLink to="/" className="navbar-logo">
-          Shifty
-        </NavLink>
-
-        <div className="navbar-links">
-          {isLoggedIn ? (
-            <>
-              <NavLink to="/schedule" className="navbar-link">
-                Schedule
-              </NavLink>
-
-              <NavLink to="/dashboard" className="navbar-link">
-                Dashboard
-              </NavLink>
-
-              <button onClick={handleLogout} className="navbar-logout-btn">
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <NavLink to="/signup" className="navbar-link">
-                Signup
-              </NavLink>
-              <NavLink to="/login" className="navbar-link">
-                Login
-              </NavLink>
-            </>
-          )}
+    <>
+      {isDemo && (
+        <div className="demo-banner">
+          <span className="demo-banner-text">
+            Demo Mode — changes are session-only
+          </span>
+          <button onClick={handleLogout} className="demo-banner-exit">
+            Exit Demo
+          </button>
         </div>
-      </div>
-    </nav>
+      )}
+      <nav className="navbar">
+        <div className="navbar-container">
+          <NavLink to="/" className="navbar-logo">
+            Shifty
+          </NavLink>
+
+          <div className="navbar-links">
+            {isLoggedIn ? (
+              <>
+                <NavLink to="/schedule" className="navbar-link">
+                  Schedule
+                </NavLink>
+
+                <NavLink to="/dashboard" className="navbar-link">
+                  Dashboard
+                </NavLink>
+
+                {!isDemo && (
+                  <button onClick={handleLogout} className="navbar-logout-btn">
+                    Logout
+                  </button>
+                )}
+              </>
+            ) : (
+              <>
+                <NavLink to="/signup" className="navbar-link">
+                  Signup
+                </NavLink>
+                <NavLink to="/login" className="navbar-link">
+                  Login
+                </NavLink>
+              </>
+            )}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }
 

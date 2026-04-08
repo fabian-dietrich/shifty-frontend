@@ -33,3 +33,21 @@
 .home-list li {
   margin-bottom: var(--spacing-sm);
 }
+
+.home-demo-section {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-gray-300);
+  text-align: center;
+}
+ 
+.home-demo-btn {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) var(--spacing-2xl);
+}
+ 
+.home-demo-hint {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+}

@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isDemo, setIsDemo] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,11 +23,13 @@ function AuthProvider({ children }) {
 
         setIsLoggedIn(true);
         setUser(response.data.user);
+        setIsDemo(response.data.isDemo || false);
         setIsLoading(false);
       } catch (error) {
         console.error("Token verification failed:", error);
         setIsLoggedIn(false);
         setUser(null);
+        setIsDemo(false);
         setIsLoading(false);
         localStorage.removeItem("authToken");
       }
@@ -42,6 +45,7 @@ function AuthProvider({ children }) {
   const logout = () => {
     localStorage.removeItem("authToken");
     setIsLoggedIn(false);
+    setIsDemo(false);
     setUser(null);
   };
 
@@ -50,13 +54,36 @@ function AuthProvider({ children }) {
     await verifyToken();
   };
 
+  const demoLogin = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/demo-login`
+      );
+
+      const { authToken } = response.data;
+      localStorage.setItem("authToken", authToken);
+      await verifyToken();
+      return { success: true };
+    } catch (error) {
+      console.error("Demo login failed:", error);
+      return {
+        success: false,
+        error:
+          error.response?.data?.errorMessage ||
+          "Failed to start demo. Please try again.",
+      };
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn,
+        isDemo,
         user,
         isLoading,
         login,
+        demoLogin,
         logout,
         verifyToken,
       }}
