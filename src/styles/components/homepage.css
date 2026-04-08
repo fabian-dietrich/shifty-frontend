@@ -47,7 +47,7 @@
 }
  
 .home-demo-hint {
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-md);
   font-size: var(--font-size-sm);
   color: var(--color-gray-500);
 }
